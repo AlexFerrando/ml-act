@@ -42,8 +42,8 @@ batch_size: ${model.default_batch_size}
 compute_responses: true
 compute_interventions: true
 
-# evaluation: e.g. ['text-generation', 'model_perplexity', 'mmlu', 'zero_shot', 'rtp']
-evaluation: ${task_params.default_evaluation}
+evaluation: ['model_perplexity', 'mmlu', 'zero_shot', 'rtp']
+# evaluation: ${task_params.default_evaluation}
 
 model:
   module_names: ${.default_module_names.default}
@@ -181,7 +181,7 @@ zero_shot:
   seed: ${seed}
   device: ${device}
   dtype: ${dtype:torch.float32}
-  model_path: "meta-llama/Meta-Llama-3-8B-Instruct"
+  model_path: ${model.model_path}
   # Model max sequence length allowed.
   seq_len: 50 # seq_len for the zero-shot model
   cache_dir: ${cache_dir}
@@ -248,7 +248,7 @@ model_perplexity:
   # Data type for model
   dtype: ${dtype:torch.float32}
   # Path or URL to the model weights
-  perplexity_model_path: "mistralai/Mistral-7B-v0.1"
+  model_path: ${model.model_path}
   # Path to the CSV containing evaluation data
   data_path: "${results_dir}/generate_with_hooks/text_generation.csv"
   # Column(s) containing sentences in the --data-path CSV. If 2 passed, the second one is the prompt column

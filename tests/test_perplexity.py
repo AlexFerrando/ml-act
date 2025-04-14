@@ -66,7 +66,7 @@ def test_evaluate_perplexity(with_prompt):
                     "fast=true",
                     "device=cpu",
                     f"results_dir={tempfolder}",
-                    "model_perplexity.perplexity_model_path=EleutherAI/pythia-70m",
+                    "model_perplexity.model_path=EleutherAI/pythia-70m",
                     f"model_perplexity.data_path={tmpfile}",
                     f"model_perplexity.column_sentences={column_sentences}",
                     "wandb.mode=disabled",

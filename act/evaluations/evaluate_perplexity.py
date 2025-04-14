@@ -55,7 +55,7 @@ def evaluate(cfg: DictConfig) -> t.Dict[str, float]:
 
     # Models and Tokenizers
     module, tokenizer = get_model(
-        model_path=cfg.perplexity_model_path,
+        model_path=cfg.model_path,
         cache_dir=cfg.data_dir,
         device=cfg.device,
         dtype=cfg.dtype,
@@ -83,7 +83,7 @@ def evaluate(cfg: DictConfig) -> t.Dict[str, float]:
         prompts = None
 
     logging.info(
-        f"Computing PPL with {cfg.perplexity_model_path} on {len(sentences)} sentences."
+        f"Computing PPL with {cfg.model_path} on {len(sentences)} sentences."
     )
 
     ppl = measure_perplexity(
@@ -99,7 +99,7 @@ def evaluate(cfg: DictConfig) -> t.Dict[str, float]:
     )
 
     # Add PPL column!
-    model_name = Path(cfg.perplexity_model_path).name
+    model_name = Path(cfg.model_path).name
     col = f"ppl_{model_name}"
     if col in df.columns:
         col = col + "-v2"
