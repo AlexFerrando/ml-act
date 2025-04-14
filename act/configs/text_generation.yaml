@@ -42,8 +42,8 @@ batch_size: ${model.default_batch_size}
 compute_responses: true
 compute_interventions: true
 
-evaluation: ['model_perplexity', 'mmlu', 'zero_shot', 'rtp']
-# evaluation: ${task_params.default_evaluation}
+# evaluation: e.g. ['text-generation', 'model_perplexity', 'mmlu', 'zero_shot', 'rtp']
+evaluation: ${task_params.default_evaluation}
 
 model:
   module_names: ${.default_module_names.default}
