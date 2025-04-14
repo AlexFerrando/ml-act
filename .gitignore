@@ -124,3 +124,9 @@ dmypy.json
 
 #Hydra logs
 outputs/
+
+# Datasets
+data/datasets/
+
+# Model checkpoints
+data/models/
