@@ -136,3 +136,6 @@ data/outputs/
 
 # .wandb.yaml
 .wandb.yaml
+
+# job.sh file
+job.sh

@@ -2,8 +2,8 @@
 # Copyright (C) 2024 Apple Inc. All Rights Reserved.
 
 hydra:
-  job:
-    chdir: false
+  run:
+    dir: outputs/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
 
 defaults:
   - _self_
