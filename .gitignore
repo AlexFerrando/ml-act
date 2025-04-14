@@ -128,5 +128,8 @@ outputs/
 # Datasets
 data/datasets/
 
-# Model checkpoints
-data/models/
+# Model caches
+data/cache/
+
+# Outputs
+data/outputs/
