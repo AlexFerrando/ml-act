@@ -119,10 +119,10 @@ dmypy.json
 # VSCODE IDE
 .vscode
 
-#Pycharm IDE
+# Pycharm IDE
 .idea
 
-#Hydra logs
+# Hydra logs
 outputs/
 
 # Datasets
