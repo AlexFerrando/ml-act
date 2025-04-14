@@ -57,7 +57,8 @@ def setup_wandb(cfg: DictConfig) -> wandb.apis.public.Run:
     if Path(".wandb.yaml").exists():
         wandb_config = load_yaml(".wandb.yaml")
         os.environ["WANDB_API_KEY"] = wandb_config["WANDB_API_KEY"]
-        os.environ["WANDB_BASE_URL"] = wandb_config["WANDB_BASE_URL"]
+        if "WANDB_BASE_URL" in wandb_config:
+            os.environ["WANDB_BASE_URL"] = wandb_config["WANDB_BASE_URL"]
         cfg_dict = OmegaConf.to_container(cfg, resolve=True, throw_on_missing=True)
         run = wandb.init(
             config=cfg_dict,
@@ -67,6 +68,7 @@ def setup_wandb(cfg: DictConfig) -> wandb.apis.public.Run:
         raise FileNotFoundError(
             "Cannot find '.wandb.yaml'. You must set it if you want to use WandB, with content:\n"
             "WANDB_API_KEY: your_api_key\n"
+            "# Optionally, only if you are using a custom base URL:\n"
             "WANDB_BASE_URL: your_base_url"
         )
     return run

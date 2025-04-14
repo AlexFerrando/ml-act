@@ -133,3 +133,6 @@ data/cache/
 
 # Outputs
 data/outputs/
+
+# .wandb.yaml
+.wandb.yaml
